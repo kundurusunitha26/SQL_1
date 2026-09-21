@@ -1,16 +1,12 @@
-1.Creating a database
 
 CREATE DATABASE company_db;
 
-2.To check the table is created or not
 
 USE company_db;
 
-3.Showing the table
 
 SHOW DATABASES;
 
-4.Creating a table
 
 CREATE TABLE departments (
     department_id INT PRIMARY KEY,
@@ -18,11 +14,9 @@ CREATE TABLE departments (
 );
 
 
-5.Description of table
 
 DESC departments;
 
-6.Inserting a values
 
 INSERT INTO departments
 VALUES (1, 'Computer Science');
@@ -31,12 +25,10 @@ INSERT INTO departments
 VALUES (2, 'Mechanical');
 
 
-7.Showing the entire table data
 
 SELECT * FROM departments;
 
 
-8.Creating a employee table
 
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
@@ -56,7 +48,6 @@ CREATE TABLE employees (
 );
 
 
-9.Inserting a data into employees
 
 INSERT INTO employees
 (employee_id, name, email, salary, department_id)
