@@ -117,5 +117,74 @@ FROM employees e JOIN employee_projects ep
  ON e.employee_id = ep.employee_id
  JOIN projects p
  ON ep.project_id = p.project_id;
+
+ SELECT e.employee_name,p.project_name
+ FROM employees e
+ JOIN employee_projects ep
+ ON e.employee_id = ep.employee_id
+ JOIN projects p
+ ON ep.project_id = p.project_id
+ WHERE project_name = 'E-Commerce Application';
+
+ SELECT e.employee_name,p.project_name,ep.assigned_date
+ FROM employees e
+ JOIN employee_projects ep
+ ON e.employee_id = ep.employee_id
+ JOIN projects p
+ ON ep.project_id = p.project_id
+ WHERE p.project_name = 'Banking Application';
+ 
+ CREATE VIEW employee_department_view AS
+ SELECT 
+ e.employee_id,e.employee_name,e.salary,d.department_name,d.location
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id;
+ 
+ select * from employee_department_view;
+ 
+ CREATE VIEW high_salary_employees AS 
+ SELECT empmloyee_id,employee_name,salary
+ FROM employees
+ WHERE salary > 60000;
+ 
+SELECT UPPER(employee_name) FROM employees;
+SELECT LOWER (employee_name) FROM employees;
+SELECT employee_name,
+LENGTH(employee_name) AS name_length
+FROM employees;
+
+SELECT COUNT(*) AS total_employees
+FROM employees;
+
+ SELECT AVG(salary) AS average_salary 
+ FROM employees;
+ 
+ SELECT MAX(salary) AS highest_salary 
+ FROM employees;
+ 
+ SELECT MIN(salary) AS lowest_salary 
+ FROM employees;
+ 
+ SELECT ROUND(AVG(salary),2) AS average_salary
+ FROM employees;
+ 
+ CREATE VIEW employee_details AS
+ SELECT
+ e.employee_id,e.employee_name,e.email,e.salary,d.department_name
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id;
+ 
+ CREATE VIEW it_employees AS
+ SELECT e.employee_id,e.employee_name,e.email,e.salary,d.department_name
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id
+ WHERE d.department_name = 'IT';
+ 
+ 
+ 
+ 
  
  
