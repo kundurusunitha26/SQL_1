@@ -85,3 +85,37 @@ SELECT e.employee_name AS employee,m.employee_name AS manager FROM employees e L
 
 SELECT e.employee_name,d.department_name FROM employees e INNER JOIN departments d ON e.department_id = d.department_id;
 SELECT e.employee_name,p.project_name FROM employees e CROSS JOIN projects p;
+
+
+SELECT e.employee_name,p.project_name,p.budget 
+FROM employees e JOIN employee_projects ep
+ ON e.employee_id = ep.employee_id 
+ JOIN projects p 
+ ON ep.project_id = p.project_id 
+ WHERE p.budget > 400000;
+ 
+ SELECT e.employee_name,d.department_name
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id;
+ 
+ 
+ SELECT e.employee_name,d.department_name,e.salary
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id;
+ 
+ SELECT e.employee_name,d.department_name
+ FROM employees e
+ JOIN departments d
+ ON e.department_id = d.department_id
+ WHERE department_name = 'IT';
+ 
+ SELECT e.employee_name,p.project_name,ep.assigned_date
+ FROM employees e
+ JOIN employee_projects ep
+ ON e.employee_id = ep.employee_id
+ JOIN projects p
+ ON ep.project_id = p.project_id;
+ 
+ 
