@@ -73,3 +73,15 @@ VALUES
 (5, 2, '2024-03-10'),
 (3, 3, '2024-05-05'),
 (4, 3, '2024-05-10');
+
+USE company_db1;
+select * from employees;
+select * from departments;
+SELECT e.employee_name,d.department_name FROM employees e INNER JOIN departments d ON e.department_id = d.department_id;
+
+SELECT e.employee_name,d.department_name FROM employees e LEFT JOIN departments d ON e.department_id = d.department_id;
+
+SELECT e.employee_name AS employee,m.employee_name AS manager FROM employees e LEFT JOIN employees m ON e.manager_id = m.employee_id;
+
+SELECT e.employee_name,d.department_name FROM employees e INNER JOIN departments d ON e.department_id = d.department_id;
+SELECT e.employee_name,p.project_name FROM employees e CROSS JOIN projects p;
