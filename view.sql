@@ -109,5 +109,22 @@ DELIMITER ;
 CALL delete_employee_salary(2, 70000);
 
 
-
-
+DELIMITER //
+CREATE PROCEDURE check_salary(
+	IN emp_id INT
+)
+BEGIN
+	DECLARE emp_salary DECIMAL(10,2);
+    SELECT salary
+    INTO emp_salary
+    FROM employees
+    WHERE employee_id = emp_id;
+    IF emp_salary >= 70000 THEN
+		SELECT 'High Salary' AS result;
+	ELSEIF emp_salary >= 50000 THEN
+		SELECT 'Medium Salary' AS result;
+	ELSE 
+		SELECT 'Low Salary' AS result;
+	END IF;
+END //
+DELIMITER ;
